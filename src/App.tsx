@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {Canvas, useFrame} from '@react-three/fiber'
+import styled from "styled-components";
+import Model from "./components/Model.tsx";
+import Light from "./components/Light.tsx";
+import {Vector3} from "three";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+    const Container = styled.div`
+        width: 100dvw;
+        height: 100dvh;`
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const vec = new Vector3()
+    const Rig = () => {
+        return useFrame(({camera, pointer}) => {
+            vec.set(pointer.x * 2, Math.abs(pointer.y) * 2, camera.position.z)
+            camera.position.lerp(vec, 0.025)
+            camera.lookAt(0, 0, 0)
+        })
+    }
+    return (
+        <Container id="canvas-container">
+            <Canvas  shadows camera={{ position: [0, 0, 5], fov: 25 }} >
+                <Model modelUrl="/models/tsukuda_roca_fix.vrm" animationUrl="/models/VRMA_02.vrma"></Model>
+                <Light></Light>
+                <Rig />
+            </Canvas>
+        </Container>
+    )
 }
-
-export default App
