@@ -1,0 +1,47 @@
+.titleContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  .box-outer {
+    position: relative;
+    &::before,&::after,.box-inner::before, .box-inner::after {
+      content:"";
+      display: block;
+      position: absolute;
+      background: #333;
+      width: 20px;
+      height: 20px;
+      z-index: -1;
+    }
+    &::before {
+      top: 0;
+      left: 0;
+    }
+    &::after {
+      top: 0;
+      right: 0;
+    }
+    .box-inner {
+      position: relative;
+      &::before {
+        bottom: -2px;
+        left: 0;
+      }
+      &::after {
+        bottom: -2px;
+        right: 0;
+      }
+    }
+  }
+  h1 {
+    font-family: "WorkSans", sans-serif;
+    font-size: 5rem;
+    background: #fff;
+    margin: 2px;
+    padding: 1rem 2rem 1rem 2rem;
+  }
+}

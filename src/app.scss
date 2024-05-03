@@ -1,4 +1,7 @@
-#canvas-container {
+.app {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
   width: 100dvw;
   height: 100dvh;
 }

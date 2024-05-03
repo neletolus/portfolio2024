@@ -1,57 +1,40 @@
-.background {
-  position: relative;
-  width: 100dvw;
-  height: 100dvh;
-  background: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
-}
-.container {
-  width: 500px;
-  height: 500px;
-  border-radius: 100%;
-  position: relative;
-}
+$loadingUi__animationDuration: 3s; // 何秒おきにアニメーションをループするか
+$loadingUi__glitchDuration: 1%; // グリッチ (RGB ずらし) 自体の長さ、上記秒数に対するパーセンテージ
+$loadingUi__glitchFrequency: 100; // 動きの頻度
+$loadingUi__glitchInterval: 30%;
 
-$animation-duration: 3s; // 何秒おきにアニメーションをループするか
-$glitch-duration: 1%; // グリッチ (RGB ずらし) 自体の長さ、上記秒数に対するパーセンテージ
-$glitch-frequency: 100; // 動きの頻度
-$glitch-interval: 30%;
-
-@function rand($min, $max) {
+@function loadingUi__Rand($min, $max) {
   @return random() * ($max - $min) + $min;
 }
 
-@mixin rgb-shift($name) {
+@mixin loadingUi__rgbShift($name) {
   @keyframes rgb-shift-#{$name} {
-    @for $i from 0 to $glitch-frequency {
-      #{$i * $glitch-interval} {
+    @for $i from 0 to $loadingUi__glitchFrequency {
+      #{$i * $loadingUi__glitchInterval} {
         transform: translate(
-                        #{rand(-2, 2) * 1%}, // 左右にどれぐらい動くか (横幅の±2%)
-                        #{rand(-0.5, 0.5) * 1%} // 上下にどれぐらい動くか (縦幅の±0.5%)
+                        #{loadingUi__Rand(-2, 2) * 1%}, // 左右にどれぐらい動くか (横幅の±2%)
+                        #{loadingUi__Rand(-0.5, 0.5) * 1%} // 上下にどれぐらい動くか (縦幅の±0.5%)
         );
       }
     }
 
-    #{$glitch-duration}, 100% {
+    #{$loadingUi__glitchDuration}, 100% {
       transform: none;
     }
   }
 
-  animation: rgb-shift-#{$name} $animation-duration steps(1, jump-end) infinite alternate both;
+  animation: rgb-shift-#{$name} $loadingUi__animationDuration steps(1, jump-end) infinite alternate both;
 }
 
-@mixin glitch($name) {
+@mixin loadingUi__glitch($name) {
   @keyframes glitch-#{$name} {
-    @for $i from 0 to $glitch-frequency {
+    @for $i from 0 to $loadingUi__glitchFrequency {
       $left: 0%;
       $right: 100%;
-      $top: rand(0, 90) * 1%; // 切り取る位置 (縦軸0%〜90%内でランダムに動かす)
-      $bottom: $top + rand(1, 10) * 1%; // 切り取るサイズ (画像縦幅1%〜10%)
+      $top: loadingUi__Rand(0, 90) * 1%; // 切り取る位置 (縦軸0%〜90%内でランダムに動かす)
+      $bottom: $top + loadingUi__Rand(1, 10) * 1%; // 切り取るサイズ (画像縦幅1%〜10%)
 
-      #{$i * $glitch-interval} {
+      #{$i * $loadingUi__glitchInterval} {
         clip-path: polygon(
                         $left $top,
                         $right $top,
@@ -59,31 +42,69 @@ $glitch-interval: 30%;
                         $left $bottom
         );
         transform: translate(
-                        #{rand(-8, 8) * 1%}, // 左右にどれぐらい動くか (横幅の±8%)
-                        #{rand(-0.5, 0.5) * 1%} // 上下にどれぐらい動くか (縦幅の±0.5%)
+                        #{loadingUi__Rand(-8, 8) * 1%}, // 左右にどれぐらい動くか (横幅の±8%)
+                        #{loadingUi__Rand(-0.5, 0.5) * 1%} // 上下にどれぐらい動くか (縦幅の±0.5%)
         );
       }
     }
 
-    #{$glitch-duration}, 100% {
+    #{$loadingUi__glitchDuration}, 100% {
       clip-path: none;
       transform: none;
     }
   }
 
-  animation: glitch-#{$name} $animation-duration linear infinite alternate both;
+  animation: glitch-#{$name} $loadingUi__animationDuration linear infinite alternate both;
 }
 
-.glitchedimage {
-  overflow: hidden;
+.loadingUi {
   position: relative;
-  width: 500px;
-  height: 500px;
-  border-radius: 100%;
-  background-image: url('./assets/loading.png');
-  background-size: cover;
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
 
-  &::before, &::after {
+  &__container {
+    width: 500px;
+    overflow: hidden;
+    height: 500px;
+    border-radius: 100%;
+    position: relative;
+  }
+
+  &__glitchedimage {
+    overflow: hidden;
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 100%;
+    background-image: url('./assets/loading.png');
+    background-size: cover;
+
+    &::before, &::after {
+      background: inherit; // コンテナ要素の背景を継承
+      background-size: cover;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    &::before {
+      content:"";
+      @include loadingUi__glitch(before);
+    }
+
+    &::after {
+      content:"";
+      @include loadingUi__glitch(after);
+    }
+  }
+
+  &__channel {
     background: inherit; // コンテナ要素の背景を継承
     background-size: cover;
     bottom: 0;
@@ -91,73 +112,53 @@ $glitch-interval: 30%;
     position: absolute;
     right: 0;
     top: 0;
+    mix-blend-mode: screen;
+
+    &::before {
+      bottom: 0;
+      content: "";
+      display: block;
+      left: 0;
+      mix-blend-mode: multiply;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    &.r {
+      @include loadingUi__rgbShift(r);
+      &::before {
+        background: #f00;
+      }
+    }
+    &.g {
+      @include loadingUi__rgbShift(g);
+      &::before {
+        background: #0f0;
+      }
+    }
+    &.b {
+      @include loadingUi__rgbShift(b);
+      &::before {
+        background: #00f;
+      }
+    }
   }
 
-  &::before {
-    content:"";
-    @include glitch(before);
-  }
-
-  &::after {
-    content:"";
-    @include glitch(after);
-  }
-}
-
-.channel {
-  background: inherit; // コンテナ要素の背景を継承
-  background-size: cover;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  mix-blend-mode: screen;
-
-  &::before {
-    bottom: 0;
-    content: "";
-    display: block;
-    left: 0;
-    mix-blend-mode: multiply;
+  &__loadTextWrapper {
     position: absolute;
-    right: 0;
     top: 0;
-  }
-
-  &.r {
-    @include rgb-shift(r);
-    &::before {
-      background: #f00;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &--content {
+      color: white;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 10px;
+      border-radius: 5px;
     }
-  }
-  &.g {
-    @include rgb-shift(g);
-    &::before {
-      background: #0f0;
-    }
-  }
-  &.b {
-    @include rgb-shift(b);
-    &::before {
-      background: #00f;
-    }
-  }
-}
-
-.loadTextWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 500px;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &--content {
-    color: white;
-    background: rgba(0, 0, 0, 0.75);
-    padding: 10px;
-    border-radius: 5px;
   }
 }
