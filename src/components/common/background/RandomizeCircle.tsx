@@ -1,15 +1,14 @@
 import {useEffect, useState} from "react";
 
-export default function RandomizeLine() {
+export default function RandomizeCircle() {
     const [isInit, setIsInit] = useState(true)
-
     const getRandomStyle = () => {
+        const sizeRandom = Math.random() * 100 + "px";
         return {
             top: Math.random() * 100 + "%",
             left: Math.random() * 100 + "%",
-            width: Math.random() * 50 + "%",
-            height: Math.random() * 50 + "px",
-            transform: "rotate(" + Math.random() * 360 + "deg)",
+            width: sizeRandom,
+            height: sizeRandom,
             opacity: 1
         };
     }

@@ -1,4 +1,9 @@
 @font-face {
     font-family: 'WorkSans';
-    src: url('./assets/WorkSans-ExtraBold.ttf') format('truetype');
+    src: url('assets/font/WorkSans-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RedditMono';
+    src: url('assets/font/RedditMono-ExtraLight.ttf') format('truetype');
 }
