@@ -18,7 +18,7 @@ export default function LinkContents() {
                     <a href="https://twitter.com/ra4n8ra6n">X（Twitter）</a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/">Facebook</a>
+                    <a href="https://www.facebook.com/profile.php?id=100076001464951">Facebook</a>
                 </li>
             </ul>
         </div>
