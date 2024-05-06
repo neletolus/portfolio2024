@@ -10,7 +10,7 @@ export default function Background() {
                     (function () {
                         const list = [];
                         for (let i = 0; i < 4; i++) {
-                            list.push(<div></div>)
+                            list.push(<div key={i}></div>)
                         }
                         return <>{list}</>
                     } ())
@@ -21,7 +21,7 @@ export default function Background() {
                     (function () {
                         const list = [];
                         for (let i = 0; i < 10; i++) {
-                            list.push(<RandomizeLine></RandomizeLine>)
+                            list.push(<RandomizeLine key={i}></RandomizeLine>)
                         }
                         return <>{list}</>
                     } ())
@@ -32,7 +32,7 @@ export default function Background() {
                     (function () {
                         const list = [];
                         for (let i = 0; i < 10; i++) {
-                            list.push(<RandomizeLine></RandomizeLine>)
+                            list.push(<RandomizeLine key={i}></RandomizeLine>)
                         }
                         return <>{list}</>
                     } ())
@@ -43,7 +43,7 @@ export default function Background() {
                     (function () {
                         const list = [];
                         for (let i = 0; i < 10; i++) {
-                            list.push(<RandomizeCircle></RandomizeCircle>)
+                            list.push(<RandomizeCircle key={i}></RandomizeCircle>)
                         }
                         return <>{list}</>
                     } ())
@@ -54,7 +54,7 @@ export default function Background() {
                     (function () {
                         const list = [];
                         for (let i = 0; i < 10; i++) {
-                            list.push(<RandomizeCircle></RandomizeCircle>)
+                            list.push(<RandomizeCircle key={i}></RandomizeCircle>)
                         }
                         return <>{list}</>
                     } ())

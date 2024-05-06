@@ -1,0 +1,21 @@
+export enum logotype {
+    NEXTJS,
+    SUPABASE,
+    VERCEL,
+    HTML,
+    CSS,
+    JAVASCRIPT,
+    WORDPRESS,
+    GAS,
+    RECORDING,
+    BLENDER,
+    VROID,
+    FIGMA,
+    AFFINITYPHOTO,
+    AFFINITYDESIGNER,
+    THREE,
+    NODEJS,
+    KOTLIN,
+    AWS,
+    SELENIUM
+}

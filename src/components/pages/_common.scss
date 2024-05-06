@@ -1,0 +1,180 @@
+.pageContainer {
+  transition: all 1.0s ease-in-out;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: "ZenKakuGothic", sans-serif;
+  color: #333333;
+
+  a {
+    color: #00a6ff;
+    &:hover {
+      background: #00a6ff;
+      color: #fff;
+    }
+  }
+
+  .contents {
+    position: relative;
+    width: 800px;
+    margin: auto;
+    .titleArea {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      padding: 40px 20px 20px 20px;
+      width: 800px;
+      background: #ffffff;
+      z-index: 1;
+      border-bottom: 1px solid #333333;
+      h1 {
+        position: relative;
+        font-family: "RedditMono", sans-serif;
+        font-size: 3rem;
+        color: #333333;
+        display: inline-block;
+        font-weight: normal;
+        line-height: 1;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 20px;
+          background: #FE7171;
+          top: 30px;
+          left: 10px;
+          z-index: -1;
+        }
+      }
+
+      .titleLink {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        transition: all 0.3s;
+        border-radius: 5px;
+        &::before {
+          position: absolute;
+          content: "";
+          top: 8px;
+          left: 8px;
+          width: 12px;
+          height: 12px;
+          border-top: 2px solid #333333;
+          border-right: 2px solid #333333;
+          transform: rotate(225deg);
+        }
+        &::after {
+          position: absolute;
+          content: "";
+          top: 8px;
+          left: 15px;
+          width: 12px;
+          height: 12px;
+          border-top: 2px solid #333333;
+          border-right: 2px solid #333333;
+          transform: rotate(225deg);
+        }
+        &:hover {
+          &::before {
+            border-top: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
+          }
+          &::after {
+            border-top: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
+          }
+          background: #FE7171;
+        }
+      }
+    }
+    .databody {
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding: 140px 40px 40px 40px;
+    }
+
+    .symbols {
+      position: relative;
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 0.8rem;
+        border-radius: 5px;
+        line-height: 1;
+        padding: 5px;
+        display: inline-block;
+        &.blue {
+          background: #00a6ff;
+          color: #ffffff;
+        }
+        &.red {
+          background: #FE7171;
+          color: #ffffff;
+        }
+        &.gray {
+          background: #cccccc;
+        }
+        &.green {
+          background: #78ff5e;
+        }
+        & + span {
+          margin-left: 5px;
+        }
+      }
+    }
+    .icons {
+      margin: 20px 10px;
+      h4 {
+        font-weight: normal;
+      }
+      ul {
+        list-style: none;
+        position: relative;
+        display: flex;
+        align-items: center;
+        li {
+          position: relative;
+          .tooltip {
+            font-family: "RedditMono", sans-serif;
+            position: absolute;
+            display: none;
+            background: #fff45f;
+            z-index: 1;
+            border-radius: 10px;
+            padding: 5px;
+            top: 30px;
+            font-weight: bold;
+            white-space: nowrap;
+            &.japanese {
+              font-family: "ZenKakuGothic", sans-serif;
+              font-weight: normal;
+            }
+          }
+          img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+          }
+          &:hover {
+            .tooltip {
+              display: block;
+            }
+          }
+          & + li {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+  }
+}

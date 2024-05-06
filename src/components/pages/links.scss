@@ -1,0 +1,13 @@
+.linkContainer {
+&__databody {
+  ul {
+    padding: 0 40px;
+    li {
+      font-size: 1.2rem;
+      & + li {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+}

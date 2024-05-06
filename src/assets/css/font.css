@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'WorkSans';
+    src: url('../font/WorkSans-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RedditMono';
+    src: url('../font/RedditMono-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ZenKakuGothic';
+    src: url('../font/ZenKakuGothicNew-Regular.ttf') format('truetype');
+}

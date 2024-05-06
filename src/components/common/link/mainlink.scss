@@ -1,3 +1,5 @@
+@use "../../../assets/css/mediaquery";
+
 .mainLink {
   font-family: "RedditMono", sans-serif;
   position: absolute;
@@ -6,7 +8,7 @@
   color: #333333;
   background: rgba(0,0,0,0);
   transition: all 2.0s ease-in-out;
-
+  z-index: 100;
   &.topleft, &.bottomleft {
     padding: 40px 50px 40px 40px;
   }
@@ -60,5 +62,19 @@
         width: 100%;
       }
     }
+  }
+
+  @include mediaquery.mq("md") {
+    font-size: 1rem;
+    &.topleft, &.bottomleft {
+      padding: 20px 30px 20px 20px;
+    }
+    &.topright, &.bottomright {
+      padding: 20px 20px 20px 30px;
+    }
+    &__box {
+      height: 4px;
+    }
+
   }
 }

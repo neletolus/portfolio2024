@@ -33,7 +33,7 @@ export default function Title() {
                     <TitleSideDesign beforeCss={{bottom: -100, right: -100}}
                                      afterCss={{bottom: 0, right: 0}}></TitleSideDesign>
                 </div>
-                <h1 style={isInit ? ({opacity: 0}) : ({opacity: 1})}>Portfolio 2024</h1>
+                <h1 style={isInit ? ({opacity: 0}) : ({opacity: 1})}>Yohei Suda Portfolio</h1>
             </div>
         </div>)
 }

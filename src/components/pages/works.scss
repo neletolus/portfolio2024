@@ -1,0 +1,70 @@
+.workContainer {
+  overflow-y: auto;
+
+  &__databody {
+    details {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    summary {
+      position: relative;
+      display: block;
+      padding: 20px 20px 20px 50px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border-bottom: 1px solid #333333;
+      &:hover {
+        background: rgba(0,0,0,0.1);
+      }
+      &::marker {
+        display: none;
+      }
+      &:before,
+      &:after {
+        content: "";
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+      }
+      &:before {
+        width: 30px;
+        height: 30px;
+        border-radius: 4px;
+        left: 10px;
+        background-color: #cccccc;
+      }
+      &:after {
+        left: 20px;
+        width: 10px;
+        height: 10px;
+        border: 8px solid transparent;
+        border-left: 12px solid #fff;
+        box-sizing: border-box;
+        transition: .1s;
+      }
+    }
+    details[open] {
+      summary:after {
+        transform: rotate(90deg);
+        left: 15px;
+        top: 8px;
+      }
+    }
+    h2 {
+      font-size: 1.7rem;
+      line-height: 1;
+      display: inline-block;
+    }
+  }
+  &__data {
+    position: relative;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px;
+    margin: 20px;
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
+}
