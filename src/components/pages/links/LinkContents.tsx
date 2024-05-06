@@ -15,10 +15,10 @@ export default function LinkContents() {
                     <a href="https://www.lancers.jp/profile/neletolus" target="_blank">ランサーズ</a>
                 </li>
                 <li>
-                    <a href="https://twitter.com/ra4n8ra6n">X（Twitter）</a>
+                    <a href="https://twitter.com/ra4n8ra6n" target="_blank">X（Twitter）</a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/profile.php?id=100076001464951">Facebook</a>
+                    <a href="https://www.facebook.com/profile.php?id=100076001464951" target="_blank">Facebook</a>
                 </li>
             </ul>
         </div>

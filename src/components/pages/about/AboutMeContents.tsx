@@ -66,11 +66,11 @@ export default function AboutMeContents() {
                              linkUrl={null}
                              linkText={""}
                              description={<>
-                                 同社主催の<a href="https://qetic.jp/music/bornnow-180710/290585/">Bornnow 2018</a>にサポートのVJとして参加した縁で、<br />
+                                 同社主催の<a href="https://qetic.jp/music/bornnow-180710/290585/" target="_blank">Bornnow 2018</a>にサポートのVJとして参加した縁で、<br />
                                  インターンのフロントエンドエンジニアとして参加しました。<br />
                                  <br />
                                  主に下記案件のマップアプリやタイムテーブル周辺を担当しました。<br />
-                                 <a href="https://newskool.jp/casestudy/siw2019/">SIW2019紹介</a>
+                                 <a href="https://newskool.jp/casestudy/siw2019/" target="_blank">SIW2019紹介</a>
                              </>}
                              icons={[logotype.WORDPRESS, logotype.HTML, logotype.CSS, logotype.JAVASCRIPT]}/>
                 <AboutMeInfo title={"株式会社CRANE"} titleUrl={"https://crane-inc.io/"}
