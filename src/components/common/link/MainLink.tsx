@@ -1,6 +1,5 @@
 import {Link} from "react-router-dom";
 import {CSSProperties, useEffect, useLayoutEffect, useState} from "react";
-import "./mainlink.scss"
 import MainLinkBottomBox from "./parts/MainLinkBottomBox.tsx";
 import MainLinkSideLine from "./parts/MainLinkSideLine.tsx";
 import {LocationType} from "./LocationType.ts";

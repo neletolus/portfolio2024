@@ -1,3 +1,5 @@
+@use "../../assets/css/mediaquery";
+
 .pageContainer {
   transition: all 1.0s ease-in-out;
   position: relative;
@@ -27,6 +29,9 @@
       background: #ffffff;
       z-index: 1;
       border-bottom: 1px solid #333333;
+      @include mediaquery.mq("lg") {
+        padding-top: 80px;
+      }
       h1 {
         position: relative;
         font-family: "RedditMono", sans-serif;
@@ -94,6 +99,9 @@
       width: 100%;
       height: auto;
       padding: 140px 40px 40px 40px;
+      @include mediaquery.mq("lg") {
+        padding-top: 180px;
+      }
     }
 
     .symbols {
@@ -169,12 +177,30 @@
         }
       }
     }
+    @include mediaquery.mq("md") {
+      width: calc(100% - 40px);
+      margin: 0 20px;
+
+      .titleArea {
+        width: calc(100% - 40px);
+        padding: 80px 0 20px 0;
+        h1 {
+          font-size: 2rem;
+          &::before {
+            top: 20px;
+          }
+        }
+      }
+      .databody {
+        padding: 180px 0 40px 0;
+      }
+    }
   }
   .footer {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 60px 0;
+    padding: 60px 0 100px 0;
   }
 }
