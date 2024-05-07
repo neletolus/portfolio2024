@@ -75,8 +75,8 @@ export default function AboutMeContents() {
                              icons={[logotype.WORDPRESS, logotype.HTML, logotype.CSS, logotype.JAVASCRIPT]}/>
                 <AboutMeInfo title={"株式会社CRANE"} titleUrl={"https://crane-inc.io/"}
                              date={"2018/09/01 ~ 2020/02/28"}
-                             linkUrl={""}
-                             linkText={""}
+                             linkUrl={"https://crane-inc.io/posts/interview_suda"}
+                             linkText={"卒業時のインタビュー記事"}
                              description={<>
                                  アルバイトでWebコーダ、フロントエンドエンジニアとして参加しました。<br />
                                 Wordpress案件やECショップの立ち上げ、軽い予約システムの開発など対応していました。
