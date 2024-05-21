@@ -47,18 +47,6 @@ export default function WorkContents() {
                           description={<>GLTFのモデルを表示できるやつです。<br />GLBになってなくてもGLTFとテクスチャが入ったフォルダを投げればまとめて表示してくれるようにしています。</>}
                           icons={[logotype.VERCEL, logotype.THREE]}
                 />
-                <WorkInfo title={"自作UTAU"} date={"2024"} contract={null}
-                          linkUrl={"https://drive.google.com/file/d/1rI2OwSWzAyHKA3sYG3L-LrfIYhBLiS3i/view?usp=sharing"}
-                          linkText={"音源DLはこちらから"}
-                          description={<>作曲のために作ったUTAU音源。自分の裏声で作ったけれど結構良い感じになりました。</>}
-                          icons={[logotype.RECORDING]}
-                />
-                <WorkInfo title={"自作VRM"} date={"2024"} contract={null}
-                          linkUrl={"https://hub.vroid.com/characters/6071844136137597123/models/8525604423387162602"}
-                          linkText={"VroidHUBのURL"}
-                          description={<>UTAU音源にキャラをつけたいと思いBlenderとVroid Studioで作成しました。<br />タトゥーはStable Diffusionでデザインを作成し、画像編集で見た目を整えました。</>}
-                          icons={[logotype.BLENDER, logotype.VROID]}
-                />
                 <WorkInfo title={"サイトデザイン作成"} date={"2023/3"} contract={null}
                           linkUrl={"https://www.figma.com/file/8jkfXLp0d94P40hk3aegnV/cafe-mellow?type=design&node-id=0-1&mode=design"}
                           linkText={"FigmaのURL"}
