@@ -22,7 +22,7 @@ export default function AboutMeContents() {
             </div>
             <div className="aboutMeContainer__databody__middle">
                 <h2>経歴：</h2>
-                <AboutMeInfo title={"株式会社Generosity"} titleUrl={"https://generosity.co.jp/"}
+                <AboutMeInfo title={"株式会社GENEROSITY"} titleUrl={"https://generosity.co.jp/"}
                              date={"2024/06/01 ~ "}
                              linkUrl={null}
                              linkText={""} description={<></>}
